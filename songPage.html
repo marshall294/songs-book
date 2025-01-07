@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4682b4;
+            margin-top: 20px;
+        }
+
+        .pdf-container {
+            width: 100%;
+            height: 80vh;  /* Adjust height as necessary */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .back-button:hover {
+            background-color: #5a9bcf;
+        }
+
+        @media (max-width: 600px) {
+            .pdf-container {
+                height: 60vh;  /* Adjust for smaller screens */
+            }
+
+            iframe {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="song-title">Loading song...</h1>
+
+<!-- PDF Container -->
+<div class="pdf-container">
+    <iframe id="song-pdf" src="" frameborder="0"></iframe>
+</div>
+
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='song.html'">Back to Song List</button>
+<button class="back-button" onclick="window.location.href='error.html'">Song not displaying or missing</button>
+
+<script>
+    // Extract song name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const songName = decodeURIComponent(urlParams.get('song'));
+
+    const songTitle = document.getElementById('song-title');
+    const songPdf = document.getElementById('song-pdf');
+    const errorPage = document.getElementById('error-page');
+    const formContainer = document.getElementById('form-container');
+
+    // Check if songName is provided
+    if (songName) {
+        // Set the title dynamically
+        songTitle.textContent = songName;
+
+        // Set the PDF URL dynamically
+        songPdf.src = `${songName}.pdf`;
+    }
+</script>
+</body>
+</html>

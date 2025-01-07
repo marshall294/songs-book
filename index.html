@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs of the Church</title>
+    <style>
+        /* Same styling as provided by you */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header img {
+            height: 80px;
+        }
+        header .icons {
+            display: flex;
+            gap: 10px;
+        }
+        header .icons img {
+            height: 40px;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            color: #4682b4;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            color: #333;
+        }
+        .song-tile {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .song-tile:hover {
+            transform: scale(1.05);
+        }
+        .song-thumbnail {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .song-title {
+            margin-top: 10px;
+            color: #660000;
+            text-decoration: none;
+        }
+        .song-tile a {
+            text-decoration: none; /* Added to remove underline */
+        }
+        #song-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+        #search-box {
+            width: calc(100% - 40px);
+            margin: 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="marshall.png" alt="Logo">
+    <div class="icons">
+        <a href="mailto:marshall12340@gmail.com"><img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email"></a>
+        <a href="https://wa.me/+2348102341648" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png" alt="WhatsApp"></a>
+        <a href="https://www.facebook.com/marshall294" target="_blank"><img src="https://static-00.iconduck.com/assets.00/facebook-icon-512x511-ircc9ves.png" alt="Facebook"></a>
+<a href="https://churchofchristkwamba.vercel.app" alt="Church of Christ">
+  <img src="church-pic.png" alt="Church of Christ" />
+</a>
+    </div>
+</header>
+
+<h1>Songs of the Church</h1>
+
+<div class="welcome-note">
+    <p>Welcome to our digital songbook! Use the search box below to find your favorite songs by number or name.</p>
+</div>
+
+<!-- Search Box -->
+<input type="text" id="search-box" onkeyup="searchSongs()" placeholder="Search by song's number or song's title">
+
+<div id="song-container">
+    <!-- Dynamic Song Tiles -->
+    <div class="song-tile" data-song="0 A Hill Called Mount Calvary">
+        <a href="songPage.html?song=0 A Hill Called Mount Calvary">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 0" class="song-thumbnail">
+            <p class="song-title">0 A Hill Called Mount Calvary</p>
+        </a>
+    </div>
+    <div class="song-tile" data-song="0 A Hill Called Mount Calvary">
+        <a href="000 Battle Hymn of the Republic.pdf" target="_blank">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 000" class="song-thumbnail">
+            <p class="song-title">000 Battle Hymn of the Republic</p>
+        </a>
+    </div>
+<div class="song-tile" data-song="00A What will you do">
+    <a href="00AWhat will you do.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 00A" class="song-thumbnail">
+        <p class="song-title">00A What will you do</p>
+    </a>
+</div>
+<div class="song-tile" data-song="01A Tell Them of Jesus">
+    <a href="01A Tell Them of Jesus.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 01A" class="song-thumbnail">
+        <p class="song-title">01A Tell Them of Jesus</p>
+    </a>
+</div>
+<div class="song-tile" data-song="001 After The Midnight">
+    <a href="001After The Midnight.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 001" class="song-thumbnail">
+        <p class="song-title">001 After The Midnight</p>
+    </a>
+</div>
+<div class="song-tile" data-song="002 A Wonderful Savior">
+    <a href="002 A Wonderful Savior.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 002" class="song-thumbnail">
+        <p class="song-title">002 A Wonderful Savior</p>
+    </a>
+</div>
+<div class="song-tile" data-song="003 A Mighty Fortress">
+    <a href="003 A Mighty Fortress.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 003" class="song-thumbnail">
+        <p class="song-title">003 A Mighty Fortress</p>
+    </a>
+</div>
+<div class="song-tile" data-song="004 Asleep In Jesus">
+    <a href="004 Asleep In Jesus.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 004" class="song-thumbnail">
+        <p class="song-title">004 Asleep In Jesus</p>
+    </a>
+</div>
+<div class="song-tile" data-song="005 An Empty Mansion">
+    <a href="005 An Empty Mansion.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 005" class="song-thumbnail">
+        <p class="song-title">005 An Empty Mansion</p>
+    </a>
+</div>
+<div class="song-tile" data-song="006 Alas and Did my Savior Bleed">
+    <a href="006 Alas and Did my Savior Bleed.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 006" class="song-thumbnail">
+        <p class="song-title">006 Alas and Did my Savior Bleed</p>
+    </a>
+</div>
+<div class="song-tile" data-song="007 All Hail the Power of Jesus Name-Holden">
+    <a href="007 All Hail the Power of Jesus Name-Holden.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 007" class="song-thumbnail">
+        <p class="song-title">007 All Hail the Power of Jesus Name-Holden</p>
+    </a>
+</div>
+<div class="song-tile" data-song="008 A Charge to Keep">
+    <a href="008 A Charge to Keep.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 008" class="song-thumbnail">
+        <p class="song-title">008 A Charge to Keep</p>
+    </a>
+</div>
+<div class="song-tile" data-song="009 A Beautiful Life">
+    <a href="009 A Beautiful Life.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 009" class="song-thumbnail">
+        <p class="song-title">009 A Beautiful Life</p>
+    </a>
+</div>
+<div class="song-tile" data-song="010 I Surrender All">
+    <a href="010 I Surrender All.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 010" class="song-thumbnail">
+        <p class="song-title">010 I Surrender All</p>
+    </a>
+</div>
+<div class="song-tile" data-song="011 A Beautiful Prayer">
+    <a href="011 A Beautiful Prayer.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 011" class="song-thumbnail">
+        <p class="song-title">011 A Beautiful Prayer</p>
+    </a>
+</div>
+<div class="song-tile" data-song="012 Amazing Grace">
+    <a href="012 Amazing Grace-fsocppt.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 012" class="song-thumbnail">
+        <p class="song-title">012 Amazing Grace</p>
+    </a>
+</div>
+<div class="song-tile" data-song="013 A Blessing in Prayer">
+    <a href="013 A Blessing in Prayer.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 013" class="song-thumbnail">
+        <p class="song-title">013 A Blessing in Prayer</p>
+    </a>
+</div>
+<div class="song-tile" data-song="014 A New Creature">
+    <a href="014 A New Creature-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 014" class="song-thumbnail">
+        <p class="song-title">014 A New Creature</p>
+    </a>
+</div>
+<div class="song-tile" data-song="015 To God Be the Glory">
+    <a href="015 To God Be the Glory-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 015" class="song-thumbnail">
+        <p class="song-title">015 To God Be the Glory</p>
+    </a>
+</div>
+<div class="song-tile" data-song="016 Beyond the Gates">
+    <a href="016 Beyond the Gates-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 016" class="song-thumbnail">
+        <p class="song-title">016 Beyond the Gates</p>
+    </a>
+</div>
+<div class="song-tile" data-song="017 Above The Bright Blue">
+    <a href="017 Above The Bright Blue-fsoc A Charge to Keep.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 017" class="song-thumbnail">
+        <p class="song-title">017 Above The Bright Blue</p>
+    </a>
+</div>
+<div class="song-tile" data-song="018 A Soul Winner For Jesus">
+    <a href="018 A Soul Winner For Jesus-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 018" class="song-thumbnail">
+        <p class="song-title">018 A Soul Winner For Jesus</p>
+    </a>
+</div>
+<div class="song-tile" data-song="019 Abide with Me">
+    <a href="019 Abide with Me-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 019" class="song-thumbnail">
+        <p class="song-title">019 Abide with Me</p>
+    </a>
+</div>
+<div class="song-tile" data-song="020 Again the Lord of Light">
+    <a href="020 Again the Lord of Light-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 020" class="song-thumbnail">
+        <p class="song-title">020 Again the Lord of Light</p>
+    </a>
+</div>
+<div class="song-tile" data-song="021 Almost Persuaded">
+    <a href="021 Almost Persuaded-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 021" class="song-thumbnail">
+        <p class="song-title">021 Almost Persuaded</p>
+    </a>
+</div>
+<div class="song-tile" data-song="022 Angels are Singing">
+    <a href="022 Angels are Singing-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 022" class="song-thumbnail">
+        <p class="song-title">022 Angels are Singing</p>
+    </a>
+</div>
+<div class="song-tile" data-song="023 Angry Words">
+    <a href="023 Angry Words-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 023" class="song-thumbnail">
+        <p class="song-title">023 Angry Words</p>
+    </a>
+</div>
+<div class="song-tile" data-song="024 Anywhere is Home">
+    <a href="024 Anywhere is Home-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 024" class="song-thumbnail">
+        <p class="song-title">024 Anywhere is Home</p>
+    </a>
+</div>
+<div class="song-tile" data-song="025 Anywhere with Jesus">
+    <a href="025 Anywhere with Jesus-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 025" class="song-thumbnail">
+        <p class="song-title">025 Anywhere with Jesus</p>
+    </a>
+</div>
+<div class="song-tile" data-song="026 All the Way my Savior Leads">
+    <a href="026 All the Way my Savior Leads-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 026" class="song-thumbnail">
+        <p class="song-title">026 All the Way my Savior Leads</p>
+    </a>
+</div>
+<div class="song-tile" data-song="027 As The Life Of A Flower">
+    <a href="027 As The Life Of A Flower-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 027" class="song-thumbnail">
+        <p class="song-title">027 As The Life Of A Flower</p>
+    </a>
+</div>
+<div class="song-tile" data-song="028 Crossing the Bar">
+    <a href="028 Crossing the Bar-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 028" class="song-thumbnail">
+        <p class="song-title">028 Crossing the Bar</p>
+    </a>
+</div>
+<div class="song-tile" data-song="029 Beautiful">
+    <a href="029 Beautiful-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 029" class="song-thumbnail">
+        <p class="song-title">029 Beautiful</p>
+    </a>
+</div>
+<div class="song-tile" data-song="030 At the Crossroads">
+    <a href="030 At the Crossroads-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 030" class="song-thumbnail">
+        <p class="song-title">030 At the Crossroads</p>
+    </a>
+</div>
+<div class="song-tile" data-song="031 Be Not Dismayed Whate_er betide">
+    <a href="031 Be Not Dismayed Whate_er betide-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 031" class="song-thumbnail">
+        <p class="song-title">031 Be Not Dismayed Whate_er betide</p>
+    </a>
+</div>
+<div class="song-tile" data-song="031 God Will Take Care Of You">
+    <a href="031 God Will Take Care Of You-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 031" class="song-thumbnail">
+        <p class="song-title">031 God Will Take Care Of You</p>
+    </a>
+</div>
+<div class="song-tile" data-song="032 Be With Me Lord">
+    <a href="032 Be With Me Lord-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 032" class="song-thumbnail">
+        <p class="song-title">032 Be With Me Lord</p>
+    </a>
+</div>
+<div class="song-tile" data-song="033 Awake and Sing">
+    <a href="033 Awake and Sing-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 033" class="song-thumbnail">
+        <p class="song-title">033 Awake and Sing</p>
+    </a>
+</div>
+<div class="song-tile" data-song="034 Abide with Me Tis Eventide">
+    <a href="034 Abide with Me Tis Eventide-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 034" class="song-thumbnail">
+        <p class="song-title">034 Abide with Me Tis Eventide</p>
+    </a>
+</div>
+<div class="song-tile" data-song="035 All People That on Earth Do Dwell">
+    <a href="035 All People That on Earth Do Dwell-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 035" class="song-thumbnail">
+        <p class="song-title">035 All People That on Earth Do Dwell</p>
+    </a>
+</div>
+<div class="song-tile" data-song="036 Behold a Stranger">
+    <a href="036 Behold a Stranger-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 036" class="song-thumbnail">
+        <p class="song-title">036 Behold a Stranger</p>
+    </a>
+</div>
+<div class="song-tile" data-song="037 Beautiful Isle of Somewhere">
+    <a href="037 Beautiful Isle of Somewhere-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 037" class="song-thumbnail">
+        <p class="song-title">037 Beautiful Isle of Somewhere</p>
+    </a>
+</div>
+<div class="song-tile" data-song="038 Beneath the Cross of Jesus">
+    <a href="038 Beneath the Cross of Jesus-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 038" class="song-thumbnail">
+        <p class="song-title">038 Beneath the Cross of Jesus</p>
+    </a>
+</div>
+<div class="song-tile" data-song="039 The Beautiful Sunrise">
+    <a href="039 The Beautiful Sunrise-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 039" class="song-thumbnail">
+        <p class="song-title">039 The Beautiful Sunrise</p>
+    </a>
+</div>
+<div class="song-tile" data-song="39B Into My Heart-SOC">
+    <a href="39B Into My Heart-SOC-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 39B" class="song-thumbnail">
+        <p class="song-title">39B Into My Heart-SOC</p>
+    </a>
+</div>
+<div class="song-tile" data-song="040 Cling to His Hand">
+    <a href="040 Cling to His Hand-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 040" class="song-thumbnail">
+        <p class="song-title">040 Cling to His Hand</p>
+    </a>
+</div>
+<div class="song-tile" data-song="041 By His Wonderful Grace">
+    <a href="041 By His Wonderful Grace-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 041" class="song-thumbnail">
+        <p class="song-title">041 By His Wonderful Grace</p>
+    </a>
+</div>
+<div class="song-tile" data-song="042 Beulah Land">
+    <a href="042 Beulah Land-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 042" class="song-thumbnail">
+        <p class="song-title">042 Beulah Land</p>
+    </a>
+</div>
+<div class="song-tile" data-song="043 Blessed Assurance">
+    <a href="043 Blessed Assurance-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 043" class="song-thumbnail">
+        <p class="song-title">043 Blessed Assurance</p>
+    </a>
+</div>
+<div class="song-tile" data-song="044 Beyond the Sunset">
+    <a href="044 Beyond the Sunset-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 044" class="song-thumbnail">
+        <p class="song-title">044 Beyond the Sunset</p>
+    </a>
+</div>
+<div class="song-tile" data-song="045 Beyond this Land of Parting">
+    <a href="045 Beyond this Land of Parting-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 045" class="song-thumbnail">
+        <p class="song-title">045 Beyond this Land of Parting</p>
+    </a>
+</div>
+<div class="song-tile" data-song="046 Blest be the Tie">
+    <a href="046 Blest be the Tie-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 046" class="song-thumbnail">
+        <p class="song-title">046 Blest be the Tie</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="047 Beyond the Sunset-Brock">
+    <a href="047 Beyond the Sunset-Brock-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 047" class="song-thumbnail">
+        <p class="song-title">047 Beyond the Sunset-Brock</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="048 All Things Bright and Beautiful">
+    <a href="048 All Things Bright and Beautiful-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 048" class="song-thumbnail">
+        <p class="song-title">048 All Things Bright and Beautiful</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="049 The Prince of Peace">
+    <a href="049 The Prince of Peace-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 049" class="song-thumbnail">
+        <p class="song-title">049 The Prince of Peace</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="050 Burdens Are Lifted">
+    <a href="050 Burderns Are lifted-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 050" class="song-thumbnail">
+        <p class="song-title">050 Burden Are Lifted</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="051 Break Thou the Bread">
+    <a href="051 Break Thou the Bread-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 051" class="song-thumbnail">
+        <p class="song-title">051 Break Thou the Bread</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="052 By Christ Redeemed">
+    <a href="052 By Christ Redeemed-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 052" class="song-thumbnail">
+        <p class="song-title">052 By Christ Redeemed</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="053 Blessed Be the Name">
+    <a href="053 Blessed Be the Name-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 053" class="song-thumbnail">
+        <p class="song-title">053 Blessed Be the Name</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="054 Father Hear the Prayer">
+    <a href="054 Father Hear the Prayer-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 054" class="song-thumbnail">
+        <p class="song-title">054 Father Hear the Prayer</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="055 Dying With Jesus">
+    <a href="055 Dying With Jesus-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 055" class="song-thumbnail">
+        <p class="song-title">055 Dying With Jesus</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="056 Bringing In The Sheaves">
+    <a href="056 Bringing In The Sheaves-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 056" class="song-thumbnail">
+        <p class="song-title">056 Bringing In The Sheaves</p>
+    </a>
+</div>
+<div class="song-tile" data-song="057 Call For Workers">
+    <a href="057 Call For Workers-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 057" class="song-thumbnail">
+        <p class="song-title">057 Call For Workers</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="058 Camping Toward Canaan_s">
+    <a href="058 Camping Toward Canaan_s-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 058" class="song-thumbnail">
+        <p class="song-title">058 Camping Toward Canaan_s</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="059 By and By-It May Be Near">
+    <a href="059 By and By-It May Be Near-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 059" class="song-thumbnail">
+        <p class="song-title">059 By and By-It May Be Near</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="060 Christ for the World We Sing">
+    <a href="060 Christ for the World We Sing-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 060" class="song-thumbnail">
+        <p class="song-title">060 Christ for the World We Sing</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="061 Come Ye Disconsolate">
+    <a href="061 Come Ye Disconsolate-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 061" class="song-thumbnail">
+        <p class="song-title">061 Come Ye Disconsolate</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="062 Bring Christ Your Broken Life">
+    <a href="062 Bring Christ Your Broken Life-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 062" class="song-thumbnail">
+        <p class="song-title">062 Bring Christ Your Broken Life</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="063 Child or the King">
+    <a href="063 Child or the King-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 063" class="song-thumbnail">
+        <p class="song-title">063 Child or the King</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="064 Christ the Lord is Risen">
+    <a href="064 Christ the Lord is Risen-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 064" class="song-thumbnail">
+        <p class="song-title">064 Christ the Lord is Risen</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="065 Christ's Love Is All I Need">
+    <a href="065 Christ_s Love Is All I Need-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 065" class="song-thumbnail">
+        <p class="song-title">065 Christ's Love Is All I Need</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="066 Rise Up O Men of God">
+    <a href="066 Rise Up O Men of God-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 066" class="song-thumbnail">
+        <p class="song-title">066 Rise Up O Men of God</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="067 Come Thou Almighty King">
+    <a href="067 Come Thou Almighty King-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 067" class="song-thumbnail">
+        <p class="song-title">067 Come Thou Almighty King</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="068 When the Crimson Sun is Set">
+    <a href="068 When the Crimson Sun is Set-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 068" class="song-thumbnail">
+        <p class="song-title">068 When the Crimson Sun is Set</p>
+    </a>
+</div>
+<div class="song-tile" data-song="069 O Heart Bowed Down">
+    <a href="069 O Heart Bowed Down-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 069" class="song-thumbnail">
+        <p class="song-title">069 O Heart Bowed Down</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="070 Can You Count The Stars">
+    <a href="070 Can You Count The Stars-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 070" class="song-thumbnail">
+        <p class="song-title">070 Can You Count The Stars</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="071 While Shepherds Watch">
+    <a href="071 While Shepherds Watch-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 071" class="song-thumbnail">
+        <p class="song-title">071 While Shepherds Watch</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="072 Come Let Us All Unite To Sing">
+    <a href="072 Come Let Us All Unite To Sing-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 072" class="song-thumbnail">
+        <p class="song-title">072 Come Let Us All Unite To Sing</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="073 Consider the Lilies">
+    <a href="073 Consider the Lilies-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 073" class="song-thumbnail">
+        <p class="song-title">073 Consider the Lilies</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="074 Christ We Do All Adore">
+    <a href="074 Christ We Do All Adore-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 074" class="song-thumbnail">
+        <p class="song-title">074 Christ We Do All Adore</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="075 Lord I Believe">
+    <a href="075 Lord I Believe-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 075" class="song-thumbnail">
+        <p class="song-title">075 Lord I Believe</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="076 Do All In The Name Of The">
+    <a href="076 Do All In The Name Of The-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 076" class="song-thumbnail">
+        <p class="song-title">076 Do All In The Name Of The</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="077 Dear Lord and Father">
+    <a href="077 Dear Lord and Father-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 077" class="song-thumbnail">
+        <p class="song-title">077 Dear Lord and Father</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="078 Father Hear Thy Children_s">
+    <a href="078 Father Hear Thy Children_s-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 078" class="song-thumbnail">
+        <p class="song-title">078 Father Hear Thy Children_s</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="079 Day is Dying in the West">
+    <a href="079 Day is Dying in the West-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 079" class="song-thumbnail">
+        <p class="song-title">079 Day is Dying in the West</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="080 Deep Settled Peace">
+    <a href="080 Deep Settled Peace-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 080" class="song-thumbnail">
+        <p class="song-title">080 Deep Settled Peace</p>
+    </a>
+</div>
+<div class="song-tile" data-song="081 Just to Know">
+    <a href="081 Just to Know-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 081" class="song-thumbnail">
+        <p class="song-title">081 Just to Know</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="082 Did You Repent">
+    <a href="082 Did You Repent-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 082" class="song-thumbnail">
+        <p class="song-title">082 Did You Repent</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="083 Home Safe With Him At Last">
+    <a href="083 Home Safe With Him At Last-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 083" class="song-thumbnail">
+        <p class="song-title">083 Home Safe With Him At Last</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="084 Did E_er Such Love">
+    <a href="084 Did E_er Such Love-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 084" class="song-thumbnail">
+        <p class="song-title">084 Did E_er Such Love</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="085 Don_t Scatter The Sheep">
+    <a href="085 Don_t Scatter The Sheep.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 085" class="song-thumbnail">
+        <p class="song-title">085 Don_t Scatter The Sheep</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="086 Little is Much when God is in it">
+    <a href="086 Little is Much when God is in it-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 086" class="song-thumbnail">
+        <p class="song-title">086 Little is Much when God is in it</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="087 Down In The Valley">
+    <a href="087 Down In The Valley-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 087" class="song-thumbnail">
+        <p class="song-title">087 Down In The Valley</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="088 The Gospel Is For All">
+    <a href="088 The Gospel Is For All-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 088" class="song-thumbnail">
+        <p class="song-title">088 The Gospel Is For All</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="089 Dwelling in Beulah Land">
+    <a href="089 Dwelling in Beulah Land-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 089" class="song-thumbnail">
+        <p class="song-title">089 Dwelling in Beulah Land</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="090 This is for me">
+    <a href="090 This is for me-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 090" class="song-thumbnail">
+        <p class="song-title">090 This is for me</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="091 Drifting Alone">
+    <a href="091 Drifting Alone-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 091" class="song-thumbnail">
+        <p class="song-title">091 Drifting Alone</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="092 Closer To Thee">
+    <a href="092 Closer To Thee-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 092" class="song-thumbnail">
+        <p class="song-title">092 Closer To Thee</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="093 Hero of Calvary">
+    <a href="093 Hero of Calvary-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 093" class="song-thumbnail">
+        <p class="song-title">093 Hero of Calvary</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="094 Each Step I Take">
+    <a href="094 Each Step I Take-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 094" class="song-thumbnail">
+        <p class="song-title">094 Each Step I Take</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="095 Earth Holds no Treasures">
+    <a href="095 Earth Holds no Treasures-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 095" class="song-thumbnail">
+        <p class="song-title">095 Earth Holds no Treasures</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="096 Each Step of the Way">
+    <a href="096 Each Step of the Way-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 096" class="song-thumbnail">
+        <p class="song-title">096 Each Step of the Way</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="097 Encamped along the Hills of Light">
+    <a href="097 Encamped along the Hills of Light-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 097" class="song-thumbnail">
+        <p class="song-title">097 Encamped along the Hills of Light</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="097 Faith is the Victory">
+    <a href="097 Faith is the Victory-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 097" class="song-thumbnail">
+        <p class="song-title">097 Faith is the Victory</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="098 Face To Face">
+    <a href="098 Face To Face-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 098" class="song-thumbnail">
+        <p class="song-title">098 Face To Face</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="099 Everybody Will Be Happy">
+    <a href="099 Everybody Will Be Happy-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 099" class="song-thumbnail">
+        <p class="song-title">099 Everybody Will Be Happy</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="100 Ere You Left Your Room This Morning">
+    <a href="100 Ere You Left Your Room This Morning-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 100" class="song-thumbnail">
+        <p class="song-title">100 Ere You Left Your Room This Morning</p>
+    </a>
+</div>
+<div class="song-tile" data-song="101 Far Away In the Depths">
+    <a href="101 Far Away In the Depths-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 101" class="song-thumbnail">
+        <p class="song-title">101 Far Away In the Depths</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="102 Fairest Lord Jesus">
+    <a href="102 Fairest Lord Jesus-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 102" class="song-thumbnail">
+        <p class="song-title">102 Fairest Lord Jesus</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="103 Father and Friend">
+    <a href="103 Father and Friend-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 103" class="song-thumbnail">
+        <p class="song-title">103 Father and Friend</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="104 Father We Thank Thee">
+    <a href="104 Father We Thank Thee-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 104" class="song-thumbnail">
+        <p class="song-title">104 Father We Thank Thee</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="105 The Lord's Supper">
+    <a href="105 The Lord_s Supper-fsoc.pdf" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 105" class="song-thumbnail">
+        <p class="song-title">105 The Lord's Supper</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="106 Fear Not Little Flock">
+    <a href="106 Fear Not Little Flock-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 106" class="song-thumbnail">
+        <p class="song-title">106 Fear Not Little Flock</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="107 Follow Me">
+    <a href="107 Follow Me-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 107" class="song-thumbnail">
+        <p class="song-title">107 Follow Me</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="108 Jesus Loves Me This I Know">
+    <a href="108 Jesus Loves Me This I Know-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 108" class="song-thumbnail">
+        <p class="song-title">108 Jesus Loves Me This I Know</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="109 More Holiness Give me">
+    <a href="109 More Holiness Give me-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 109" class="song-thumbnail">
+        <p class="song-title">109 More Holiness Give me</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="110 Follow On">
+    <a href="110 Follow On-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 110" class="song-thumbnail">
+        <p class="song-title">110 Follow On</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="111 Take My Life">
+    <a href="111 Take My Life-McIntosh-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 111" class="song-thumbnail">
+        <p class="song-title">111 Take My Life</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="112 For the Soul That's Redeemed">
+    <a href="112 For the Soul That_s Redeemed-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 112" class="song-thumbnail">
+        <p class="song-title">112 For the Soul That's Redeemed</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="113 Footprints of Jesus">
+    <a href="113 Footprints of Jesus-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 113" class="song-thumbnail">
+        <p class="song-title">113 Footprints of Jesus</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="114 I Stand Amazed">
+    <a href="114 I Stand Amazed-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 114" class="song-thumbnail">
+        <p class="song-title">114 I Stand Amazed</p>
+    </a>
+</div>
+
+<div class="song-tile" data-song="115 From Every Stormy">
+    <a href="115 From Every Stormy-fsoc.ppt" target="_blank">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51mn4IJYIrL._SY291_BO1,204,203,200_QL40_ML2_.jpg" alt="Song 115" class="song-thumbnail">
+        <p class="song-title">115 From Every Stormy</p>
+    </a>
+</div>
+
+    <!-- Add more song tiles here -->
+</div>
+
+<script>
+    // Example: Creating dynamic song page URL links
+    const songTiles = document.querySelectorAll('.song-tile');
+    songTiles.forEach(tile => {
+        const songName = tile.getAttribute('data-song');
+        const songLink = tile.querySelector('a');
+        songLink.href = `songPage.html?song=${encodeURIComponent(songName)}`;
+    });
+    function searchSongs() {
+        // Declare variables
+        var input, filter, songContainer, songTiles, song, txtValue;
+        input = document.getElementById('search-box');
+        filter = input.value.toUpperCase();
+        songContainer = document.getElementById('song-container');
+        songTiles = songContainer.getElementsByClassName('song-tile');
+
+        // Loop through all songs, hide those that don't match the search query
+        for (var i = 0; i < songTiles.length; i++) {
+            song = songTiles[i].getElementsByTagName('p')[0];
+            txtValue = song.textContent || song.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                songTiles[i].style.display = '';
+            } else {
+                songTiles[i].style.display = 'none';
+            }
+        }
+    }
+</script>
+</body>
+</html>
