@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>003 A Mighty Fortress-fsoc</title>
+  <style>
+    :root {
+      --primary-color: #005f73;
+      --secondary-color: #94d2bd;
+      --accent-color: #0a9396;
+      --light-bg: #e0fbfc;
+      --text-color: #333;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: var(--primary-color);
+      position: center;
+    }
+    /* Slideshow style */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: none;
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    @media (max-width: 700px) {
+      .signatures {
+        flex-direction: column;
+      }
+      .signature-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h2>003 A Mighty Fortress-fsoc</h2>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <img class="slides" src="slide1.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide2.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide3.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide4.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide5.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide6.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide7.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide8.jpg" alt="Ford F-100 Side View">
+      <img class="slides" src="slide9.jpg" alt="Ford F-100 Side View">
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let slides = document.getElementsByClassName("slides");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  function plusSlides(n) {
+    slideIndex += n - 1;
+    showSlides();
+  }
+</script>
+
+</body>
+</html>
