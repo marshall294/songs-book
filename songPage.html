@@ -1,96 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            text-align: center;
-        }
-
-        h1 {
-            color: #4682b4;
-            margin-top: 20px;
-        }
-
-        .pdf-container {
-            width: 100%;
-            height: 80vh;  /* Adjust height as necessary */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4682b4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .back-button:hover {
-            background-color: #5a9bcf;
-        }
-
-        @media (max-width: 600px) {
-            .pdf-container {
-                height: 60vh;  /* Adjust for smaller screens */
-            }
-
-            iframe {
-                height: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Song Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #4682b4;
+      margin-top: 20px;
+    }
+    .slide {
+      max-width: 90%;
+      height: auto;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .navigation {
+      margin-top: 20px;
+    }
+    .navigation a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navigation a:hover {
+      text-decoration: underline;
+    }
+    #missing-msg {
+      margin-top: 30px;
+      margin: 30px;
+    }
+    .missing-button {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+    .missing-button:hover {
+      background-color: #b52a37;
+    }
+  </style>
 </head>
 <body>
 
 <h1 id="song-title">Loading song...</h1>
 
-<!-- PDF Container -->
-<div class="pdf-container">
-    <iframe id="song-pdf" src="" frameborder="0"></iframe>
+<div id="slides-container">
+  <!-- Slides will appear here -->
 </div>
 
-<!-- Back Button -->
-<button class="back-button" onclick="window.location.href='song.html'">Back to Song List</button>
-<button class="back-button" onclick="window.location.href='error.html'">Song not displaying or missing</button>
+<div class="navigation">
+  <a href="index.html">← Back to Song List</a>
+</div>
+
+<div id="missing-msg">
+  <p>If the song is not displaying or appears to be missing click the button below</p>
+  <a href="missing.html" class="missing-button">Contact Us</a>
+</div>
 
 <script>
-    // Extract song name from URL parameter
+  function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
-    const songName = decodeURIComponent(urlParams.get('song'));
+    return urlParams.get(param);
+  }
 
-    const songTitle = document.getElementById('song-title');
-    const songPdf = document.getElementById('song-pdf');
-    const errorPage = document.getElementById('error-page');
-    const formContainer = document.getElementById('form-container');
+  const songName = getQueryParam("song");
+  const decodedSongName = decodeURIComponent(songName);
+  document.getElementById("song-title").textContent = decodedSongName;
 
-    // Check if songName is provided
-    if (songName) {
-        // Set the title dynamically
-        songTitle.textContent = songName;
+  const slidesContainer = document.getElementById("slides-container");
+  const folderPath = `songs/${decodedSongName}/`;
+  const maxSlides = 50;
 
-        // Set the PDF URL dynamically
-        songPdf.src = `${songName}.pdf`;
-    }
+  let slidesLoaded = 0;
+
+  for (let i = 1; i <= maxSlides; i++) {
+    const img = new Image();
+    img.src = `${folderPath}slide${i}.jpg`;
+    img.alt = `Slide ${i}`;
+    img.className = "slide";
+
+    img.onload = function () {
+      slidesContainer.appendChild(img);
+      slidesLoaded++;
+    };
+
+    img.onerror = function () {
+      if (i === 1 && slidesLoaded === 0) {
+        slidesContainer.innerHTML = "<p>No slides available for this song.</p>";
+      }
+    };
+  }
 </script>
+
 </body>
 </html>
